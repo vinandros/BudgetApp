@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 const Expense = ({ expense, handleDelete }) => {
   const { expenseName, expenseAmount, id } = expense;
   return (
@@ -16,6 +17,10 @@ const Expense = ({ expense, handleDelete }) => {
       </p>
     </div>
   );
+};
+Expense.propTypes = {
+  expense: PropTypes.object.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default Expense;

@@ -1,5 +1,6 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
+import PropTypes from "prop-types";
 
 const BudgetState = ({ weekBudget }) => {
   const [budgetPercentUsed, setBudgetPercentUsed] = React.useState(0);
@@ -43,6 +44,10 @@ const BudgetState = ({ weekBudget }) => {
       </div>
     </div>
   );
+};
+
+BudgetState.propTypes = {
+  weekBudget: PropTypes.object.isRequired,
 };
 
 export default BudgetState;

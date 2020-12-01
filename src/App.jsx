@@ -5,21 +5,10 @@ import Ask from "./components/Ask";
 import BudgetState from "./components/BudgetState";
 const App = () => {
   const [weekBudget, setWeekBudget] = React.useState({
-    fullBudget: 2000,
-    resultBudget: 900,
+    fullBudget: 0,
+    resultBudget: 0,
   });
-  const [expensesList, setExpensesList] = React.useState([
-    {
-      expenseAmount: 500,
-      expenseName: "Transportation",
-      id: "6c63b025-cc41-4e38-bd28-92b9d1a503e2",
-    },
-    {
-      expenseAmount: 400,
-      expenseName: "Groceries",
-      id: "122a90de-3e5a-4f02-a63c-538dbcba38d7",
-    },
-  ]);
+  const [expensesList, setExpensesList] = React.useState([]);
   return (
     <div className="container-fluid">
       <div className="row overlap">

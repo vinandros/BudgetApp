@@ -1,5 +1,6 @@
 import React from "react";
 import Expense from "./Expense";
+import PropTypes from "prop-types";
 
 const ExpensesList = ({
   expensesList,
@@ -26,6 +27,12 @@ const ExpensesList = ({
       ))}
     </div>
   );
+};
+ExpensesList.propTypes = {
+  setExpensesList: PropTypes.func.isRequired,
+  setWeekBudget: PropTypes.func.isRequired,
+  expensesList: PropTypes.array.isRequired,
+  weekBudget: PropTypes.object.isRequired,
 };
 
 export default ExpensesList;

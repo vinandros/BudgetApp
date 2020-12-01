@@ -6,6 +6,7 @@ const Form = ({ setExpensesList, expensesList, setWeekBudget, weekBudget }) => {
   const [newExpense, setNewExpense] = React.useState({});
   const [error, setError] = React.useState(false);
   const [success, setSucess] = React.useState(false);
+  const [budgetlimitError, setBudgetlimitError] = React.useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +17,21 @@ const Form = ({ setExpensesList, expensesList, setWeekBudget, weekBudget }) => {
       }, 3000);
       return;
     } else {
+      if (
+        weekBudget.resultBudget + parseInt(newExpense.expenseAmount) >
+        weekBudget.fullBudget
+      ) {
+        setBudgetlimitError(true);
+        setTimeout(() => {
+          setBudgetlimitError(false);
+        }, 3000);
+        return;
+      }
+      setWeekBudget({
+        ...weekBudget,
+        resultBudget:
+          weekBudget.resultBudget + parseInt(newExpense.expenseAmount),
+      });
       setExpensesList([
         ...expensesList,
         {
@@ -77,6 +93,9 @@ const Form = ({ setExpensesList, expensesList, setWeekBudget, weekBudget }) => {
         )}
         {error && (
           <Alert type={"danger"} msg={"Error!, Fill out field properly."} />
+        )}
+        {budgetlimitError && (
+          <Alert type={"danger"} msg={"Error!, Budget limit exceeded."} />
         )}
       </form>
     </div>

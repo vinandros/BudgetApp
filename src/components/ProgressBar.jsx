@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 const ProgressBar = ({ budgetPercentUsed, type }) => {
   return (
     <div className="progress">
@@ -10,6 +10,11 @@ const ProgressBar = ({ budgetPercentUsed, type }) => {
       ></div>
     </div>
   );
+};
+
+ProgressBar.propTypes = {
+  budgetPercentUsed: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default ProgressBar;

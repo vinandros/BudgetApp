@@ -1,5 +1,6 @@
 import React from "react";
 import Alert from "./Alert";
+import PropTypes from "prop-types";
 
 const Ask = ({ setWeekBudget }) => {
   const [error, setError] = React.useState(false);
@@ -39,6 +40,10 @@ const Ask = ({ setWeekBudget }) => {
       </form>
     </div>
   );
+};
+
+Ask.propTypes = {
+  setWeekBudget: PropTypes.func.isRequired,
 };
 
 export default Ask;
